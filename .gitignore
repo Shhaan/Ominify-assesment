@@ -1,1 +1,35 @@
 /Backend/env
+
+# Node.js / Next.js
+frontend/node_modules
+frontend/.next
+frontend/out
+frontend/build
+
+# Python / FastAPI
+Backend/env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv
+venv/
+env/
+*.sqlite3
+
+# Logs
+*.log
+
+# Testing
+coverage/
+htmlcov/
+
+# Env files
+.env
+.env*.local
+
+# Misc
+.DS_Store
+*.pem
+*.tsbuildinfo
