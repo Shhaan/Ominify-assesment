@@ -1,0 +1,54 @@
+/* Attendees Page Custom Styles */
+
+.attendees-main-container {
+  padding: 1.5rem;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.attendees-event-card {
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+}
+
+.attendee-card {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+.attendee-name {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+.attendee-email {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 0.25rem;
+}
+
+.attendee-joined {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+@media (max-width: 640px) {
+  .attendees-main-container {
+    padding: 1rem;
+  }
+  .attendees-event-card {
+    padding: 1rem;
+  }
+  .attendee-card {
+    padding: 0.75rem;
+  }
+}
