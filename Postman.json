@@ -1,0 +1,122 @@
+{
+  "info": {
+    "_postman_id": "b0b78ae9-92d7-49b2-b5ae-014bb070fc17",
+    "name": "Onmify assesment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "33841861"
+  },
+  "item": [
+    {
+      "name": "Get events",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/events",
+          "host": ["http://127.0.0.1:8000"],
+          "path": ["events"],
+          "query": [
+            {
+              "key": "is_paginated",
+              "value": "true",
+              "disabled": true
+            },
+            {
+              "key": "event_name",
+              "value": "Night",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload events",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Startup Pitch Night\",\r\n  \"location\": \"WeWork Koramangala, Bangalore\",\r\n  \"start_time\": \"2025-09-20T18:30:00Z\",\r\n  \"end_time\": \"2025-09-20T21:00:00Z\",\r\n  \"max_capacity\": 50\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/events",
+          "host": ["http://127.0.0.1:8000"],
+          "path": ["events"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get attendess",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/attendees?event_id=1",
+          "host": ["http://127.0.0.1:8000"],
+          "path": ["attendees"],
+          "query": [
+            {
+              "key": "event_id",
+              "value": "1"
+            },
+            {
+              "key": "is_paginated",
+              "value": null,
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload attendess",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"event\": 1,\r\n  \"name\": \"Bob Smith\",\r\n  \"email\": \"bob.smith@example.com\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/attendees",
+          "host": ["http://127.0.0.1:8000"],
+          "path": ["attendees"],
+          "query": [
+            {
+              "key": "",
+              "value": "",
+              "disabled": true
+            },
+            {
+              "key": "",
+              "value": "",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
