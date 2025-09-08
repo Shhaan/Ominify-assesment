@@ -167,13 +167,121 @@ const Event = () => {
   if (events.length === 0) {
     return (
       <div className="event-main-container">
-        <h1 className="event-title">Upcoming Events</h1>
+        <h1 className="event-title"> Events</h1>
+        <button
+          className="create-event-btn"
+          onClick={openCreate}
+          style={{ marginBottom: "1.5rem" }}
+        >
+          Create Event
+        </button>
         <div className="no-events">
           <h2 className="no-events-title">No Events Found</h2>
           <p className="no-events-text">
             There are currently no upcoming events available.
           </p>
         </div>
+
+        {isCreateOpen && (
+          <div className="modal-overlay">
+            <div className="modal-content" style={{ maxWidth: "28rem" }}>
+              <div className="modal-header">
+                <div className="modal-header-content">
+                  <h2 className="modal-title">Create Event</h2>
+                  <button
+                    onClick={closeCreate}
+                    className="modal-close-btn"
+                    aria-label="Close modal"
+                  >
+                    <X className="modal-close-icon" />
+                  </button>
+                </div>
+              </div>
+              <form className="modal-body" onSubmit={handleCreateSubmit}>
+                <div className="modal-details">
+                  <div className="modal-detail-item">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Event Name"
+                      value={form.name}
+                      onChange={handleFormChange}
+                      className="modal-input"
+                      required
+                    />
+                  </div>
+                  <div className="modal-detail-item">
+                    <input
+                      type="text"
+                      name="location"
+                      placeholder="Location"
+                      value={form.location}
+                      onChange={handleFormChange}
+                      className="modal-input"
+                      required
+                    />
+                  </div>
+                  <div className="modal-detail-item">
+                    <input
+                      type="datetime-local"
+                      name="start_time"
+                      placeholder="Start Time"
+                      value={form.start_time}
+                      onChange={handleFormChange}
+                      className="modal-input"
+                      required
+                    />
+                  </div>
+                  <div className="modal-detail-item">
+                    <input
+                      type="datetime-local"
+                      name="end_time"
+                      placeholder="End Time"
+                      value={form.end_time}
+                      onChange={handleFormChange}
+                      className="modal-input"
+                      required
+                    />
+                  </div>
+                  <div className="modal-detail-item">
+                    <input
+                      type="number"
+                      name="max_capacity"
+                      placeholder="Max Capacity"
+                      value={form.max_capacity}
+                      onChange={handleFormChange}
+                      className="modal-input"
+                      min={1}
+                      required
+                    />
+                  </div>
+                </div>
+                {formError && (
+                  <p className="modal-meta-text" style={{ color: "#ef4444" }}>
+                    {formError}
+                  </p>
+                )}
+                <div className="modal-actions">
+                  <button
+                    type="submit"
+                    className="modal-btn modal-btn-primary"
+                    disabled={formLoading}
+                  >
+                    {formLoading ? "Creating..." : "Create"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={closeCreate}
+                    className="modal-btn modal-btn-secondary"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div className="modal-backdrop" onClick={closeCreate}></div>
+          </div>
+        )}
       </div>
     );
   }
